@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Bebopdachi!";
+}
+
+@model Pet;
+
+<div class="col-10 mx-auto">
+    <h2 class="text-center">Fullness: @Model.Fullness Happiness: @Model.Happiness Meals: @Model.Meals Energy: @Model.Energy</h2>
+    <img height="350px" class="mx-auto d-block" src=@Model.MoodImage alt="Dojodachi image here">
+    <h3 class="text-center">@Model.Message</h3>
+</div>
+
+@if (Model.Fullness > 0 && Model.Happiness > 0 && (Model.Happiness < 100 || Model.Fullness < 100 || Model.Energy < 100))
+{
+    <div class="col-10 mx-auto">
+        <div class="row justify-content-around">
+            <a class="col-2 btn btn-primary" href="/feed">Feed</a>
+            <a class="col-2 btn btn-primary" href="/play">Play</a>
+            <a class="col-2 btn btn-primary" href="/work">Work</a>
+            <a class="col-2 btn btn-primary" href="/sleep">Sleep</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-10 mx-auto">
+        <div class="row justify-content-around">
+            <a class="col-4 btn btn-primary" href="/restart">Restart?</a>
+        </div>
+    </div>
+}
